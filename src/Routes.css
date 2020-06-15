@@ -1,0 +1,16 @@
+.NavBar{
+background-color: black;
+
+padding: 30px;
+}
+
+.Routes-NavLink {
+  padding: 20px;
+  border-right: solid 1px;
+  color: white;
+}
+
+.Routes-NavLink-Last{
+  padding: 20px;
+  color: white;
+}

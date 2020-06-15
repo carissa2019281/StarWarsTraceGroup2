@@ -1,0 +1,11 @@
+ul {
+    list-style-type: none;
+    color: gray;
+}
+
+.People{
+    text-align: left;
+    margin: 50px;
+    line-height: 30px;
+}
+

@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Home from './Home.js';
+import People from './People.js';
+import Vehicles from './Vehicles.js';
+import Starships from './Starships.js';
+import Species from './Species.js';
+import Routes from './Routes.js';
+
+export default class App extends Component {
+  state = {
+    data: null
+  }
+  componentDidMount(){
+    axios
+      .get("https://swapi.dev/api/")
+      .then((response) => this.setState({ data: response.data }));
+  }
+  render(){
+    return (
+      <div className="App">
+        <Routes />
+        
+
+        {/* <pre>{JSON.stringify(this.state.data, null, 2)}</pre> */}
+       
+        {/*
+        Object.keys() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+        Object.values() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Object/values
+        Object.entries https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
+        */}
+
+        {/* {this.state.data && this.state.data.map(person => (
+          <div>{person.name}</div>
+        ))} */}
+      </div>
+    );
+  }
 }
 
-export default App;
+// const myobj = {
+//   key: value,
+//   key2: value2,
+// }
+
+// const arr = [
+//   [key, value],
+//   [key2, value2],
+// ]
